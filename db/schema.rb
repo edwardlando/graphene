@@ -11,6 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20130119050815) do
+
+  create_table "graphs", :force => true do |t|
+    t.string   "permalink"
+    t.string   "excel_url"
+    t.string   "graph_type"
+    t.string   "category"
+    t.string   "visualization_name"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
 
 end
