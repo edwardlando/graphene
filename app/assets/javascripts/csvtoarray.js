@@ -1,4 +1,3 @@
-<script type="text/javascript">
 
     // This will parse a delimited string into an array of
     // arrays. The default delimiter is the comma, but this
@@ -84,5 +83,3 @@
     	// Return the parsed data.
     	return( arrData );
     }
-
-</script>
