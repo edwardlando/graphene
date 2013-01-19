@@ -5,55 +5,49 @@
 <link rel="canonical" href="http://d3js.org/">
 <title>Graphene | Beautiful Data</title>
 <head>
-  <style>
 
-  @import url(style.css);
-
-  #examples {
-    width: 960px;
-    height: 378px;
-    margin-bottom: 2em;
-  }
-
-  .example img {
-    float: left;
-    margin-bottom: 13px;
-    width: 226px;
-    height: 180px;
-    border: solid 2px #ccc;
-  }
-
-  .example:hover img {
-    border-color: steelblue;
-  }
-
-  .example:not(:nth-child(4n)) img {
-    margin-right: 13px;
-  }
-
-  </style>
-
-
+  
   <script src="d3/d3.v3.js"></script>
   <script src="d3/d3.v3.min.js"></script>
+  <%= javascript_include_tag :defaults %>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= csrf_meta_tags %>
 
 </head>
 <body>
   <div id="body">
 
-    <header style="margin-bottom:50px;">‍
-      <b><a href="./">Graphene</a></b>
-      <h2>Beautiful Data</h2>
-    </header>
 
-    <div id="examples">
-     <a href="/graphs/scatter"><img src="https://raw.github.com/gist/3887118/thumbnail.png" width="202"></a>
-     <a href="/graphs/airports"><img src="https://a248.e.akamai.net/camo.github.com/0965990c401367a7bcef4c7c9cecd073d7b6d544/687474703a2f2f64336a732e6f72672f65782f616972706f7274732e706e67" width="202"></a>
-     <a href="/home"><img src="https://raw.github.com/gist/3885705/thumbnail.png" width="202"></a>
-     <a href="/home"><img src="https://a248.e.akamai.net/camo.github.com/75c89bc5be846d0a20380ddfd1aa6227317b92e2/687474703a2f2f64336a732e6f72672f65782f736c6f70652e706e67" width="202"></a>
-   </div>
+    <%= form_for(Graph.new(), :id => "graph") do |f| %>
+      <ul id="graph_form">
+      <li class="field" id="graph_type">
+        <%= f.select(:graph_type, Graph::GRAPH_URLS) %>  
+            <div class="picker">
+                <% Graph::GRAPH_URLS.each do |url| %>
+                    <span class="option"><%= image_tag(url) %></span>
+                <% end %>
+            </div>
+      </li>
+      <li class="field">
+        <%= f.label :permalink %><br />
+        <%= f.text_field :permalink %>
+      </li>
+       <li class="field">
+        <%= f.label :excel_url %><br />
+        <%= f.text_field :excel_url %>
+      </li>
+       <li class="field">
+          <%= f.label :category %><br />
+        <%= f.text_field :category %>
+      </li>
+       <li class="field">
+        <%= f.label :visualization_name %><br />
+        <%= f.text_field :visualization_name %>
+      </li>
+    </ul>
+    <% end %>
 
-   <form> 
+<form> 
    Graph Name<input id="name" type="text" name="name"/><br />
    File<input type="filepicker" name="file"/><br />
    <input type="submit" />
@@ -61,6 +55,7 @@
 
    <script type="text/javascript" src="//api.filepicker.io/v1/filepicker.js"></script>
    <script type="text/javascript"> 
+
 
    filepicker.setKey('AYdPBJoBRaKh7NvZBMy0Qz');
 

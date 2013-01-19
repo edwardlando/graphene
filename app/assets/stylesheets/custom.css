@@ -1,0 +1,55 @@
+html, body {
+	height: 100%;
+}
+
+.picker > .option {
+   	height: auto;
+   	width: auto;
+   	border: none;
+   	margin-top: 5px;
+   	cursor: pointer;
+}
+
+.selected:hover .picker{
+	display: block;
+}
+
+.picker {
+	height: 300px;
+	width: 300px;
+}
+
+.picker span:hover {
+	color: #11A1F4 ;
+}
+
+.picker span {
+	display: inline-block;
+}
+
+.picker span img {
+	width: 300px;
+}
+
+.picker label {
+	margin-bottom: 50px;
+}
+
+#graph_type {
+	display: block;
+}
+
+#graph {
+	height: 800px;
+}
+
+#graph_form li {
+	list-style: none;
+}
+
+#graph_type {
+	display: block;
+	height: 400px;
+}
+
+
