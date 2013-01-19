@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Permalink:</b>
+  <%= @graph.permalink %>
+</p>
+
+<p>
+  <b>Excel url:</b>
+  <%= @graph.excel_url %>
+</p>
+
+<p>
+  <b>Graph type:</b>
+  <%= @graph.graph_type %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%= @graph.category %>
+</p>
+
+<p>
+  <b>Visualization name:</b>
+  <%= @graph.visualization_name %>
+</p>
+
+
+<%= link_to 'Edit', edit_graph_path(@graph) %> |
+<%= link_to 'Back', graphs_path %>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  permalink: MyString
+  excel_url: MyString
+  graph_type: MyString
+  category: MyString
+  visualization_name: MyString
+
+two:
+  permalink: MyString
+  excel_url: MyString
+  graph_type: MyString
+  category: MyString
+  visualization_name: MyString
