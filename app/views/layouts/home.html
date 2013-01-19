@@ -53,27 +53,21 @@
      <a href="/home.html"><img src="https://a248.e.akamai.net/camo.github.com/75c89bc5be846d0a20380ddfd1aa6227317b92e2/687474703a2f2f64336a732e6f72672f65782f736c6f70652e706e67" width="202"></a>
    </div>
 
-   <form> 
-   Graph Name<input id="name" type="text" name="name"/><br />
-   File<input type="filepicker" name="file"/><br />
-   <input type="submit" />
-</form>
+
+   <input type="filepicker" name="myName"/>
+   <input id="name" type="form" />
 
    <script type="text/javascript" src="//api.filepicker.io/v1/filepicker.js"></script>
    <script type="text/javascript"> 
 
    filepicker.setKey('AYdPBJoBRaKh7NvZBMy0Qz');
 
-
     var name = $('#name').val();
-    if (name != '') {
     filepicker.pickAndStore({},{},function(fpfiles){
       var file = {};
       file['url'] = fpfiles['url'];
- 
+    window.location("/" + name);
     });
-       window.location("/" + name);
-}
 
 </script>
 </body>
