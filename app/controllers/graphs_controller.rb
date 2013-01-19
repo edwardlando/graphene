@@ -10,10 +10,14 @@ class GraphsController < ApplicationController
     end
   end
 
+  def scatter
+
+  end
+
   # GET /graphs/1
   # GET /graphs/1.json
   def show
-    @graph = Graph.find(params[:name])
+    @graph = Graph.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb

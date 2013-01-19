@@ -1,0 +1,76 @@
+
+	<%= javascript_include_tag :defaults %>
+
+	<script type="text/javascript" src="//api.filepicker.io/v1/filepicker.js"></script>
+	<script type="text/javascript">
+
+
+	filepicker.setKey('AYdPBJoBRaKh7NvZBMy0Qz')
+
+	//var file_link = "https://www.filepicker.io/api/file/yvYfZwOkTlW0JswdLrrn"
+	//var fpfile = {url: file_link,filename: 'scatter.csv', mimetype: 'text/plain', isWriteable: true, size: 200};
+	var data = [[0,2,3],[1,4,1],[2,4,2],[3,6,4],[4,2,8],[4,9,1]];/*
+filepicker.read(fpfile, function(d){
+		console.log(d);
+		data = d; 
+      });
+	*/
+		filepicker.pickAndStore({extension:'.csv'}, {location:'S3'}, function(FPFiles){
+			console.log(FPFiles[0]['url']);
+			d3.csv(FPFiles['url'], function(points) {
+
+
+				points.forEach(function(point){
+					console.log(point.x);
+					var p = [];
+					p.push(point.x);
+					p.push(point.y);
+					data.push(p);
+				});
+				
+				data.forEach(function(point){
+					point.forEach(function(coor){
+						console.log(coor);
+					})
+				})
+
+				var w = 500;
+				var h = 250;
+				var svg = d3.select("body")
+				.append("svg")
+				.attr("width",w)
+				.attr("height",h);
+				var xScale = d3.scale.linear()
+				.domain([0,d3.max(data,function(d){ return d[0];})])
+				.range([0,w-20]);
+				var yScale = d3.scale.linear()
+				.domain([0,d3.max(data,function(d){ return d[1];})])
+				.range([0,h-20]);
+				svg.selectAll("circle")
+				.data(data)
+				.enter()
+				.append("circle")
+				.attr("cx",function(d) { return xScale(d[0]); })
+				.attr("cy",function(d) { return yScale(d[1]); })
+				.attr("r",5);
+				svg.selectAll("text")
+				.data(data)
+				.enter()
+				.append("text")
+				.text(function(d){ return d[0] + "," + d[1]; })
+				.attr("x",function(d){ return  xScale(d[0])+8;  })
+				.attr("y",function(d){ return yScale(d[1])+3; })
+				.attr("font-family","sans-serif")
+				.attr("font-size","11px");
+
+				var scale = d3.scale.linear();
+				scale.domain([0,200]);
+				scale.range([0,100]);
+			});
+});
+
+
+	
+	
+	</script>
+		<input type="filepicker" name="myName"/ id="pick">

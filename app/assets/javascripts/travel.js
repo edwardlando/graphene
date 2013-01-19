@@ -1,4 +1,3 @@
-  <script type="text/javascript">
 
 var w = 1280,
     h = 800;
@@ -94,5 +93,3 @@ d3.csv("flights-airport.csv", function(flights) {
         .sort(function(a, b) { return countByAirport[b.iata] - countByAirport[a.iata]; });
   });
 });
-
-    </script>

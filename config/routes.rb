@@ -1,6 +1,8 @@
 Graphene2::Application.routes.draw do
   resources :graphs
 
+  match '/scatter' => 'graphs#scatter'
+
   match '/graphs/:name' => "graphs#show"
   # The priority is based upon order of creation:
   # first created -> highest priority.

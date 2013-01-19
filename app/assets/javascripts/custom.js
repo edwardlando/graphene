@@ -45,4 +45,4 @@ $(document).ready(function() {
     }
 
     lightSwitch("#ID OF THING"); // used to be true
-}
+});
