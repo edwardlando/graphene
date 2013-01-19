@@ -1,57 +1,4 @@
-
-<!DOCTYPE html>
-<html>
-  <head>
-    <%= javascript_include_tag :defaults %>
-    <link type="text/css" rel="stylesheet" href="style.css"/>
-    <style type="text/css">
-
-#states path {
-  fill: #ccc;
-  stroke: #fff;
-}
-
-path.arc {
-  pointer-events: none;
-  fill: none;
-  stroke: #000;
-  display: none;
-}
-
-path.cell {
-  fill: none;
-  pointer-events: all;
-}
-
-circle {
-  fill: steelblue;
-  fill-opacity: .8;
-  stroke: #fff;
-}
-
-#cells.voronoi path.cell {
-  stroke: brown;
-}
-
-#cells g:hover path.arc {
-  display: inherit;
-}
-
-    </style>
-  </head>
-  <body>
-    <h2>
-      <span>U.S. commercial airports</span>, 2008<br>
-      great arcs and symbol map
-    </h2>
-    <div style="position:absolute;bottom:0;font-size:18px;">
-      <input type="checkbox" id="voronoi"> <label for="voronoi">show Voronoi</label>
-    </div>
-    <script type="text/javascript" src="d3/d3.v3.js"></script>
-    <script type="text/javascript" src="d3/d3.csv.js"></script>
-    <script type="text/javascript" src="d3/d3.geo.js"></script>
-    <script type="text/javascript" src="d3/d3.geom.js"></script>
-    <script type="text/javascript">
+  <script type="text/javascript">
 
 var w = 1280,
     h = 800;
@@ -146,8 +93,6 @@ d3.csv("flights-airport.csv", function(flights) {
         .attr("r", function(d, i) { return Math.sqrt(countByAirport[d.iata]); })
         .sort(function(a, b) { return countByAirport[b.iata] - countByAirport[a.iata]; });
   });
-}); 
+});
 
     </script>
-  </body>
-</html>
